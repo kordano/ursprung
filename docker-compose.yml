@@ -1,0 +1,12 @@
+version: '3'
+services:
+  nginx:
+    build: ./nginx
+    links:
+      - core:core
+    ports:
+      - "8080:8080"
+  core:
+    build: ./core
+    ports:
+      - "31778"

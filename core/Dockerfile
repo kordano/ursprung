@@ -24,17 +24,15 @@ ENV LEIN_ROOT yes
 RUN lein
 
 # create app directory
-RUN mkdir -p /usr/src/app/logs
 WORKDIR /usr/src/app
-
 
 # clone repo
 COPY project.clj /usr/src/app
-COPY profiles.clj /usr/src/app
 COPY src /usr/src/app/src
 COPY test /usr/src/app/test
-COPY resources /usr/src/app/resources
 
 RUN lein deps
+
+EXPOSE 31788
 
 CMD ["lein", "run"]
