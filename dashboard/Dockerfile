@@ -28,9 +28,9 @@ WORKDIR /usr/src/app
 
 # clone repo
 COPY project.clj /usr/src/app
+RUN lein deps
 COPY src /usr/src/app/src
 COPY resources /usr/src/app/resources
 
-RUN lein deps
 
 CMD ["lein", "cljsbuild", "once", "min"]
