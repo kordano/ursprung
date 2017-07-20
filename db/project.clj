@@ -10,5 +10,6 @@
                  [com.fzakaria/slf4j-timbre "0.3.5"]
                  [http-kit "2.2.0"]
                  [compojure "1.5.2"]]
-  :source-paths ["src/cljs" "src/clj"]
+  :main ursprung.core
+  :jvm-opts ["-Xmx512m" "-server"]
   :profiles {:dev {:dependencies [[com.fzakaria/slf4j-timbre "0.3.5"]]}})

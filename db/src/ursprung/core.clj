@@ -17,5 +17,7 @@
         store (<?? S (new-mem-store))
         peer  (<?? S (server-peer S store uri))]
     (<?? S (start peer))
-    (println "replikativ peer startet!")
     (<?? S (chan))))
+
+(defn -main [& args]
+  (start-server))
