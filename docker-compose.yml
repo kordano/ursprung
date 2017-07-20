@@ -6,7 +6,17 @@ services:
       - core:core
     ports:
       - "8080:8080"
+    volumes:
+      - js-assets:/data/www/js
+      - ./dashboard/resources/public:/data/www
   core:
     build: ./core
     ports:
       - "31778"
+  dashboard:
+    build: ./dashboard
+    volumes:
+      - js-assets:/usr/src/app/resources/public/js
+volumes:
+  js-assets:
+    driver: local
