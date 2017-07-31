@@ -13,10 +13,22 @@ services:
     build: ./core
     ports:
       - "31778"
+
+  riemann_health:
+    build: riemann_health/
+    pid: host
+    environment:
+      - "affinity:container!=*riemannhealth*"
+      - "RIEMAN_HEALTH_SERVER_HOSTNAME:127.0.0.1"
+    volumes:
+      - "/etc/hostname:/etc/hostname:ro"
+
   dashboard:
     build: ./dashboard
     volumes:
       - js-assets:/usr/src/app/resources/public/js
+    
 volumes:
   js-assets:
     driver: local
+  
